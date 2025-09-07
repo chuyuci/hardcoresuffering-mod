@@ -1,0 +1,10 @@
+modLoader="javafml"
+loaderVersion="[5,)"
+license="MIT"
+issueTrackerURL="https://github.com/chuyuci/hardcoresuffering-mod/issues"
+
+[[mods]]
+modId="hardcoresuffering"
+version="${file:version}"
+displayName="Hardcore Suffering"
+description='''A hardcore survival mod.''' 
