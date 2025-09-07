@@ -1,0 +1,45 @@
+plugins {
+    id 'net.minecraftforge.gradle' version '5.1.+'
+    id 'java'
+}
+
+group = 'com.hardcoresuffering'
+version = '1.0.0'
+archivesBaseName = 'hardcoresuffering-mod'
+
+sourceCompatibility = JavaVersion.VERSION_17
+targetCompatibility = JavaVersion.VERSION_17
+
+repositories {
+    mavenCentral()
+    maven { url "https://maven.minecraftforge.net" }
+}
+
+dependencies {
+    // Forge 1.20.1 mappings and dependencies are resolved via the ForgeGradle plugin.
+    // 需要在 gradle.properties 指定 minecraft version 与 mappings
+}
+
+minecraft {
+    // 这些值与 forge-gradle 的配置相关，请在 gradle.properties 中设置
+    mappings channel: 'official', version: mappingsVersion
+    runs {
+        client {
+            workingDirectory project.file('run')
+            property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
+            property 'forge.logging.console.level', 'debug'
+        }
+    }
+}
+
+jar {
+    manifest {
+        attributes(
+                'Specification-Title': 'Hardcore Suffering Mod',
+                'Specification-Vendor': 'chuyuci',
+                'Specification-Version': '1',
+                'Implementation-Title': archivesBaseName,
+                'Implementation-Version': version
+        )
+    }
+}
